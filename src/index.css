@@ -2,13 +2,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-body {
   background-color: black;
   color: green;
 }
 
-h1 {
-  text-align: center;
+.book {
+  float: left;
+  width: 200px;
+  margin: 20px;
+  line-height: 30px;
 }
