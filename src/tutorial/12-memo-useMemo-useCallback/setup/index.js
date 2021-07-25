@@ -12,6 +12,23 @@ const Index = () => {
   const [count, setCount] = useState(0);
   const [cart, setCart] = useState(0);
 
+  const calculateMostExpensive = (data) => {
+    return (
+      data.reduce((total, item) => {
+        const price = item.fields.price;
+        if (price >= total) {
+          total = price;
+        }
+        return total;
+      }, 0) / 100
+    );
+  };
+
+  const mostExpensive = useMemo(
+    () => calculateMostExpensive(products),
+    [products]
+  );
+
   const addToChart = useCallback(() => {
     setCart(cart + 1);
   }, [cart]);
@@ -22,6 +39,7 @@ const Index = () => {
       <button className="btn" onClick={() => setCount(count + 1)}>
         click me
       </button>
+      <h1>the most expensive item: ${mostExpensive}</h1>
       <h1 style={{ marginTop: "3rem" }}>cart: {cart}</h1>
       <BigList products={products} addToChart={addToChart} />
     </>
