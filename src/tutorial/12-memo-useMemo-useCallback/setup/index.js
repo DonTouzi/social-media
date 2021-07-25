@@ -63,6 +63,9 @@ const BigList = React.memo(({ products, addToChart }) => {
 });
 
 const SingleProduct = ({ fields, addToChart }) => {
+  useEffect(() => {
+    console.log("Ok");
+  });
   let { name, price } = fields;
   price = price / 100;
   const image = fields.image[0].url;
