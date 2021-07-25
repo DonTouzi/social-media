@@ -1,12 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 // short-circuit evaluation
 // ternary operator
 
 const ShortCircuit = () => {
-  // const firstValue = text || 'hello world';
-  // const secondValue = text && 'hello world';
+  const [text, setText] = useState("");
+  const [isError, setIsError] = useState(false);
+  // const firstValue = text || "hello world";
+  // const secondValue = !text && "hello world";
 
-  return <h2>short circuit</h2>;
+  return (
+    <React.Fragment>
+      <h3>{text || "jhon doe"}</h3>
+      <button
+        type="button"
+        className="btn"
+        onClick={() => setIsError(!isError)}
+      >
+        toggle error
+      </button>
+      {isError ? <h3>Error</h3> : <h3>No error</h3>}
+    </React.Fragment>
+  );
 };
 
 export default ShortCircuit;
